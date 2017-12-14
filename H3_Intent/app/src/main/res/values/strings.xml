@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">H3_Intent</string>
+    <string name="input_url">请输入一个网页链接</string>
+    <string name="open">打开网页</string>
+</resources>
