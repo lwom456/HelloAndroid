@@ -1,4 +1,4 @@
-package edu.fjnu.lw.h2_layout2;
+package com.example.linwe.h2_layout2;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package edu.fjnu.lw.h2_layout2;
+package com.example.linwe.h2_layout2;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("edu.fjnu.lw.h2_layout2", appContext.getPackageName());
+        assertEquals("com.example.linwe.h2_layout2", appContext.getPackageName());
     }
 }

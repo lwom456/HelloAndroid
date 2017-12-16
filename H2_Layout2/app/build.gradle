@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "edu.fjnu.lw.h2_layout2"
+        applicationId "com.example.linwe.h2_layout2"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
