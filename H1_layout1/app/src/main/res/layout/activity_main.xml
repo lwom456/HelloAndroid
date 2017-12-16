@@ -18,9 +18,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp">
+        android:layout_marginTop="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +32,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:autoText="false"
                 android:text="One,One" />
 
             <TextView
@@ -235,22 +232,25 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="8px"
+            android:stretchColumns="*">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Open..." />
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:text="Ctrl-O" />
 
             </TableRow>
@@ -260,16 +260,17 @@
                 android:layout_height="match_parent">
 
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save..." />
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:text="Ctrl-S" />
             </TableRow>
 
@@ -277,16 +278,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save As..." />
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:text="Ctrl-Shift-S" />
             </TableRow>
 
@@ -299,7 +301,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -310,16 +312,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="X Export..." />
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:text="Ctrl-E..." />
             </TableRow>
 
@@ -332,7 +335,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <AutoCompleteTextView
+                <TextView
                     android:id="@+id/autoCompleteTextView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
