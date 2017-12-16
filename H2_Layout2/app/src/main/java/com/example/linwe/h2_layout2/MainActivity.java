@@ -1,5 +1,8 @@
 package com.example.linwe.h2_layout2;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -87,10 +90,57 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         Toast.makeText(this,name, Toast.LENGTH_SHORT).show();//吐司1代表long 0代表short
     }
 
-//    public void AlertDialog(View view){
+    //自定义布局的AlertDialog
+    public void AlertDialog(View view){
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View textEntryView = inflater.inflate(
+                R.layout.alert, null);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setTitle("ANDROID APP");
+        builder.setView(textEntryView);
+        builder.setPositiveButton("确认",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
+                });
+        builder.setNegativeButton("取消",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                    }
+                });
+        builder.show();
+
+
+//        测试（不使用布局）
+//        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+//        builder.setTitle("Title");
+//        builder.setMessage("Message");
+//        builder.setPositiveButton("Button1",
+//                new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int whichButton) {
+//                        setTitle("点击了对话框上的Button1");
+//                    }
+//                });
+//        builder.setNeutralButton("Button2",
+//                new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int whichButton) {
+//                        setTitle("点击了对话框上的Button2");
+//                    }
+//                });
+//        builder.setNegativeButton("Button3",
+//                new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int whichButton) {
+//                        setTitle("点击了对话框上的Button3");
+//                    }
+//                });
+//        builder.show();
+
+
+//
 //        LayoutInflater inflater = LayoutInflater.from(this);
 //        final View textEntryView = inflater.inflate(
-//                R.layout.alert, null);
+//                R.layout.dialoglayout, null);
 //        final EditText edtInput=(EditText)textEntryView.findViewById(R.id.edtInput);
 //        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 //        builder.setCancelable(false);
@@ -110,5 +160,5 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 //                    }
 //                });
 //        builder.show();
-//    }
+    }
 }
