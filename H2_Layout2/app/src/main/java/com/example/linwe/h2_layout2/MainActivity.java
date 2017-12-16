@@ -3,10 +3,14 @@ package com.example.linwe.h2_layout2;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -21,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener,ListView.OnItemSelectedListener {
     private ListView mListView;
     private List<Map<String,Object>> mData;
 
@@ -46,6 +50,27 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         mListView.setOnItemClickListener(this);
     }
 
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        TextView text = (TextView) view.findViewById(R.id.Text);
+        String name = text.getText().toString();
+        Toast.makeText(this,name, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        TextView text = (TextView) view.findViewById(R.id.Text);
+        String name = text.getText().toString();
+        Toast.makeText(this,name, Toast.LENGTH_SHORT).show();
+    }
+
+    //取得数据
     public List<Map<String,Object>> getData(){
         mData = new ArrayList<Map<String,Object>>();
         Map<String,Object> itemData;
@@ -83,12 +108,11 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         return mData;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        TextView text = (TextView) view.findViewById(R.id.Text);
-        String name = text.getText().toString();
-        Toast.makeText(this,name, Toast.LENGTH_SHORT).show();//吐司1代表long 0代表short
-    }
+
+
+
+
+
 
     //自定义布局的AlertDialog
     public void AlertDialog(View view){
@@ -97,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 R.layout.alert, null);
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
-        builder.setTitle("ANDROID APP");
+        builder.setTitle("ANDROID APP(AlertDialog)");
         builder.setView(textEntryView);
         builder.setPositiveButton("确认",
                 new DialogInterface.OnClickListener() {
@@ -160,5 +184,67 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 //                    }
 //                });
 //        builder.show();
+    }
+
+
+    //重写onCreateOptionMenu(Menu menu)方法，当菜单第一次被加载时调用
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        // 填充选项菜单（读取XML文件、解析、加载到Menu组件上）
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    //重写OptionsItemSelected(MenuItem item)来响应菜单项(MenuItem)的点击事件（根据id来区分是哪个item）
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            case R.id.m_font:
+                // 创建数据
+                final String[] item1 = new String[] { "小", "中", "大" };
+                // 创建对话框构建器
+                final AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                // 设置参数
+                builder1.setTitle("字体大小")
+                        .setSingleChoiceItems(item1, 0, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                EditText test = (EditText) findViewById(R.id.testText);
+                                if(which == 0) test.setTextSize(10);
+                                if(which == 1) test.setTextSize(16);
+                                if(which == 2) test.setTextSize(20);
+                            }
+                        });
+                builder1.create().show();
+                break;
+            case R.id.m_normal:
+                Toast.makeText(this, "这是普通菜单项", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.m_color:
+                // 创建数据
+                final String[] item3 = new String[] { "红色", "黑色"};
+                // 创建对话框构建器
+                final AlertDialog.Builder builder3 = new AlertDialog.Builder(this);
+                // 设置参数
+                builder3.setTitle("字体大小")
+                        .setSingleChoiceItems(item3, 0, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                EditText test = (EditText) findViewById(R.id.testText);
+                                if(which == 0) test.setTextColor(Color.parseColor("#FF0000"));
+                                if(which == 1) test.setTextColor(Color.parseColor("#000000"));
+                            }
+                        });
+                builder3.create().show();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
